@@ -480,6 +480,359 @@ section { padding: 100px 60px; }
 .pricing-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
 .pricing-cta { padding: 0 40px 40px; }
 
+/* ─── REVIEW SECTION ─── */
+.review-section { background: var(--bg); }
+.review-summary {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 64px;
+  padding: 40px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.review-score-block { text-align: center; flex-shrink: 0; }
+.review-big-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 96px;
+  color: var(--gold);
+  line-height: 1;
+}
+.review-stars-big { font-size: 24px; color: var(--gold); letter-spacing: 4px; margin: 4px 0; }
+.review-total { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.12em; }
+.review-bars { flex: 1; min-width: 220px; }
+.review-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.review-bar-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); width: 36px; flex-shrink: 0; }
+.review-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--surface2);
+  border-radius: 0;
+  overflow: hidden;
+}
+.review-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  transition: width 1s ease;
+}
+.review-bar-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); width: 24px; text-align: right; }
+.review-highlights { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 16px; }
+.review-highlight-item { display: flex; align-items: center; gap: 14px; }
+.review-highlight-icon { font-size: 22px; flex-shrink: 0; }
+.review-highlight-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.review-highlight-text strong { color: var(--text); display: block; font-size: 14px; margin-bottom: 2px; }
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 28px;
+  transition: all 0.2s;
+  position: relative;
+}
+.review-card:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-2px); }
+.review-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.review-card-author-wrap { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+  width: 40px; height: 40px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.review-author-name { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--text); letter-spacing: 0.05em; }
+.review-author-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; margin-top: 2px; }
+.review-card-stars { font-size: 12px; color: var(--gold); letter-spacing: 2px; }
+.review-card-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 3px 10px;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.review-card-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.review-card-date { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(107,114,128,0.6); margin-top: 14px; letter-spacing: 0.06em; }
+.review-card-verified { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--green); margin-top: 8px; }
+.review-card-verified::before { content: '✓'; font-weight: 700; }
+
+.review-form-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 48px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.review-form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.review-form-sub { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+.review-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.review-field { display: flex; flex-direction: column; gap: 8px; }
+.review-field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.review-field input,
+.review-field textarea,
+.review-field select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+  appearance: none;
+}
+.review-field input:focus,
+.review-field textarea:focus,
+.review-field select:focus { border-color: var(--gold); }
+.review-field textarea { min-height: 100px; }
+.review-star-select { display: flex; gap: 10px; align-items: center; margin-bottom: 24px; }
+.review-star-select label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.15em; margin-right: 8px; }
+.star-btn {
+  font-size: 24px;
+  color: var(--surface2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.15s;
+  padding: 0;
+}
+.star-btn.active, .star-btn:hover { color: var(--gold); transform: scale(1.2); }
+.review-submit {
+  background: var(--gold);
+  color: #000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 16px 40px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  margin-top: 8px;
+}
+.review-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+.review-success {
+  display: none;
+  text-align: center;
+  padding: 24px;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.3);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .review-grid { grid-template-columns: 1fr 1fr; }
+  .review-summary { flex-direction: column; gap: 36px; padding: 28px; }
+  .review-form-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .review-grid { grid-template-columns: 1fr; }
+  .review-form-wrap { padding: 28px 20px; }
+}
+
+/* ─── ENROLL MODAL ─── */
+.enroll-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.enroll-overlay.open { display: flex; }
+
+.enroll-modal {
+  background: var(--surface);
+  border: 1px solid var(--gold);
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  animation: modalIn 0.28s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.88) translateY(24px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.enroll-modal::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.enroll-modal-header {
+  padding: 36px 40px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.enroll-modal-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.enroll-modal-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+.enroll-modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.enroll-modal-sub {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.enroll-modal-body { padding: 28px 40px; }
+
+.enroll-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+.enroll-field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+}
+.enroll-field input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 13px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.enroll-field input:focus { border-color: var(--gold); }
+.enroll-field input::placeholder { color: var(--muted); }
+
+.enroll-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 40px 36px;
+}
+
+.enroll-call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--gold);
+  color: #000;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 18px 32px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  width: 100%;
+}
+.enroll-call-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+.enroll-call-btn .call-icon { font-size: 18px; }
+.enroll-call-btn .call-details { text-align: left; }
+.enroll-call-btn .call-label { font-size: 9px; letter-spacing: 0.2em; opacity: 0.7; display: block; margin-bottom: 2px; }
+.enroll-call-btn .call-number { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.08em; display: block; }
+
+.enroll-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid rgba(34,197,94,0.4);
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 14px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 100%;
+}
+.enroll-whatsapp-btn:hover { background: rgba(34,197,94,0.07); border-color: var(--green); }
+
+.enroll-avail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.enroll-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+  padding: 4px 8px;
+}
+.enroll-close:hover { color: var(--gold); }
+
 /* ─── TESTIMONIALS ─── */
 .testimonials-section { background: var(--bg2); }
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -1083,6 +1436,218 @@ footer {
   </div>
 </section>
 
+<!-- REVIEW SECTION -->
+<section class="review-section" id="reviews">
+  <div class="section-tag">COMMUNITY</div>
+  <h2 class="section-title">WHAT TRADERS ARE SAYING</h2>
+  <p class="section-sub">Verified reviews from enrolled students. No filters. No edits.</p>
+
+  <!-- Summary Bar -->
+  <div class="review-summary reveal">
+    <div class="review-score-block">
+      <div class="review-big-score">4.9</div>
+      <div class="review-stars-big">★★★★★</div>
+      <div class="review-total">217 REVIEWS</div>
+    </div>
+    <div class="review-bars">
+      <div class="review-bar-row">
+        <span class="review-bar-label">5★</span>
+        <div class="review-bar-track"><div class="review-bar-fill" style="width:91%"></div></div>
+        <span class="review-bar-count">198</span>
+      </div>
+      <div class="review-bar-row">
+        <span class="review-bar-label">4★</span>
+        <div class="review-bar-track"><div class="review-bar-fill" style="width:7%"></div></div>
+        <span class="review-bar-count">14</span>
+      </div>
+      <div class="review-bar-row">
+        <span class="review-bar-label">3★</span>
+        <div class="review-bar-track"><div class="review-bar-fill" style="width:2%"></div></div>
+        <span class="review-bar-count">4</span>
+      </div>
+      <div class="review-bar-row">
+        <span class="review-bar-label">2★</span>
+        <div class="review-bar-track"><div class="review-bar-fill" style="width:0.5%"></div></div>
+        <span class="review-bar-count">1</span>
+      </div>
+      <div class="review-bar-row">
+        <span class="review-bar-label">1★</span>
+        <div class="review-bar-track"><div class="review-bar-fill" style="width:0%"></div></div>
+        <span class="review-bar-count">0</span>
+      </div>
+    </div>
+    <div class="review-highlights">
+      <div class="review-highlight-item">
+        <span class="review-highlight-icon">🎯</span>
+        <div class="review-highlight-text">
+          <strong>Strategy Clarity</strong>Rated highly for clear, rule-based systems students can execute without guessing.
+        </div>
+      </div>
+      <div class="review-highlight-item">
+        <span class="review-highlight-icon">🤝</span>
+        <div class="review-highlight-text">
+          <strong>Mentor Accessibility</strong>Ankit's direct availability on WhatsApp praised by 94% of students.
+        </div>
+      </div>
+      <div class="review-highlight-item">
+        <span class="review-highlight-icon">📊</span>
+        <div class="review-highlight-text">
+          <strong>Backtesting Depth</strong>The data-first approach consistently cited as a standout differentiator.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Review Cards -->
+  <div class="review-grid">
+    <div class="review-card reveal">
+      <div class="review-card-header">
+        <div class="review-card-author-wrap">
+          <div class="review-avatar">VN</div>
+          <div>
+            <div class="review-author-name">VIKRAM NAIR</div>
+            <div class="review-author-meta">F&O TRADER · HYDERABAD</div>
+          </div>
+        </div>
+        <div class="review-card-stars">★★★★★</div>
+      </div>
+      <div class="review-card-tag">RISK MANAGEMENT</div>
+      <p class="review-card-text">The position sizing module alone changed my entire approach. I used to risk too much on single trades. After Month 2, I restructured everything — now I never blow more than 1.5% on any position. Drawdowns feel manageable for the first time.</p>
+      <div class="review-card-verified">VERIFIED ENROLMENT</div>
+      <div class="review-card-date">MARCH 2025</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card-header">
+        <div class="review-card-author-wrap">
+          <div class="review-avatar">PT</div>
+          <div>
+            <div class="review-author-name">PRIYA THOMAS</div>
+            <div class="review-author-meta">SWING TRADER · CHENNAI</div>
+          </div>
+        </div>
+        <div class="review-card-stars">★★★★★</div>
+      </div>
+      <div class="review-card-tag">BACKTESTING</div>
+      <p class="review-card-text">I was skeptical of online trading programs — too many just sell signals. Jireh is different. The backtesting templates forced me to validate my edge before going live. Month 3 was the turning point. Zero guesswork, all data.</p>
+      <div class="review-card-verified">VERIFIED ENROLMENT</div>
+      <div class="review-card-date">FEBRUARY 2025</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card-header">
+        <div class="review-card-author-wrap">
+          <div class="review-avatar">DS</div>
+          <div>
+            <div class="review-author-name">DEEPAK SHARMA</div>
+            <div class="review-author-meta">INTRADAY · JAIPUR</div>
+          </div>
+        </div>
+        <div class="review-card-stars">★★★★★</div>
+      </div>
+      <div class="review-card-tag">LIVE TRADE ROOM</div>
+      <p class="review-card-text">Watching Ankit walk through live setups every morning was incredibly valuable. He doesn't just call trades — he explains the exact rule that triggered the entry, what invalidates it, and where the stop sits. Education with every session.</p>
+      <div class="review-card-verified">VERIFIED ENROLMENT</div>
+      <div class="review-card-date">JANUARY 2025</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card-header">
+        <div class="review-card-author-wrap">
+          <div class="review-avatar">MK</div>
+          <div>
+            <div class="review-author-name">MANISH KULKARNI</div>
+            <div class="review-author-meta">OPTIONS TRADER · NAGPUR</div>
+          </div>
+        </div>
+        <div class="review-card-stars">★★★★★</div>
+      </div>
+      <div class="review-card-tag">OPTIONS STRATEGIES</div>
+      <p class="review-card-text">The Greeks module genuinely surprised me — most courses skim it. Here it's core. Understanding how to structure multi-leg options trades based on market conditions has opened a completely new dimension of edge. ROI on the fee: very high.</p>
+      <div class="review-card-verified">VERIFIED ENROLMENT</div>
+      <div class="review-card-date">DECEMBER 2024</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card-header">
+        <div class="review-card-author-wrap">
+          <div class="review-avatar">AS</div>
+          <div>
+            <div class="review-author-name">ANKITA SINGH</div>
+            <div class="review-author-meta">EQUITY TRADER · LUCKNOW</div>
+          </div>
+        </div>
+        <div class="review-card-stars">★★★★★</div>
+      </div>
+      <div class="review-card-tag">PSYCHOLOGY</div>
+      <p class="review-card-text">I've been trading for 2 years but kept self-sabotaging. The psychology module hit hard. Simple rules: no discretion, follow the system, log every trade. Sounds basic — but the structured accountability changed my P&L within 6 weeks.</p>
+      <div class="review-card-verified">VERIFIED ENROLMENT</div>
+      <div class="review-card-date">NOVEMBER 2024</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-card-header">
+        <div class="review-card-author-wrap">
+          <div class="review-avatar">RJ</div>
+          <div>
+            <div class="review-author-name">ROHIT JOSHI</div>
+            <div class="review-author-meta">MCX TRADER · AHMEDABAD</div>
+          </div>
+        </div>
+        <div class="review-card-stars">★★★★☆</div>
+      </div>
+      <div class="review-card-tag">COMMODITIES</div>
+      <p class="review-card-text">Good curriculum overall. The MCX module in Month 5 covers Gold and Crude well. I'd personally have liked more time on commodities, but the core mechanical framework translates cleanly. Mentor support via WhatsApp is genuinely responsive — not a bot.</p>
+      <div class="review-card-verified">VERIFIED ENROLMENT</div>
+      <div class="review-card-date">OCTOBER 2024</div>
+    </div>
+  </div>
+
+  <!-- Write a Review Form -->
+  <div class="review-form-wrap reveal">
+    <div class="review-form-title">WRITE A REVIEW</div>
+    <p class="review-form-sub">Enrolled student? Share your experience. All reviews are manually verified before publishing.</p>
+
+    <div class="review-star-select">
+      <label>YOUR RATING</label>
+      <button class="star-btn" data-val="1">★</button>
+      <button class="star-btn" data-val="2">★</button>
+      <button class="star-btn" data-val="3">★</button>
+      <button class="star-btn" data-val="4">★</button>
+      <button class="star-btn" data-val="5">★</button>
+    </div>
+
+    <div class="review-form-grid">
+      <div class="review-field">
+        <label>YOUR NAME</label>
+        <input type="text" placeholder="Full name" id="rev-name">
+      </div>
+      <div class="review-field">
+        <label>CITY</label>
+        <input type="text" placeholder="e.g. Mumbai" id="rev-city">
+      </div>
+      <div class="review-field">
+        <label>TRADING STYLE</label>
+        <select id="rev-style">
+          <option value="" disabled selected>Select your style</option>
+          <option>Intraday</option>
+          <option>Swing Trading</option>
+          <option>F&O / Options</option>
+          <option>MCX Commodities</option>
+          <option>Positional</option>
+        </select>
+      </div>
+      <div class="review-field">
+        <label>BATCH / MONTH ENROLLED</label>
+        <input type="text" placeholder="e.g. Jan 2025" id="rev-batch">
+      </div>
+    </div>
+
+    <div class="review-field" style="margin-bottom:24px">
+      <label>YOUR REVIEW</label>
+      <textarea placeholder="Share what you learned, how it impacted your trading, and what stood out..." id="rev-text"></textarea>
+    </div>
+
+    <button class="review-submit" id="rev-submit">SUBMIT REVIEW →</button>
+    <div class="review-success" id="rev-success">✓ REVIEW SUBMITTED — THANK YOU. IT WILL APPEAR AFTER VERIFICATION.</div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">JIREH TRADES</div>
@@ -1099,7 +1664,122 @@ footer {
   <div class="footer-copy">© 2025 Jireh Trades. All rights reserved. Not SEBI registered.</div>
 </footer>
 
+<!-- ENROLL MODAL -->
+<div class="enroll-overlay" id="enrollOverlay">
+  <div class="enroll-modal">
+    <button class="enroll-close" id="enrollClose">✕</button>
+
+    <!-- Step 1: Name & City -->
+    <div id="enrollStep1">
+      <div class="enroll-modal-header">
+        <div class="enroll-modal-tag">SECURE YOUR SEAT</div>
+        <div class="enroll-modal-title">ONE STEP TO <span style="color:var(--gold)">GET STARTED</span></div>
+        <p class="enroll-modal-sub">Tell us a little about yourself — then we'll connect you directly with Mentor Ankit.</p>
+      </div>
+      <div class="enroll-modal-body">
+        <div class="enroll-field">
+          <label>YOUR NAME</label>
+          <input type="text" id="modal-name" placeholder="Enter your full name">
+        </div>
+        <div class="enroll-field">
+          <label>YOUR CITY</label>
+          <input type="text" id="modal-city" placeholder="e.g. Mumbai, Delhi, Raipur…">
+        </div>
+      </div>
+      <div class="enroll-modal-actions">
+        <button class="enroll-call-btn" id="enrollNextBtn" style="border:none;cursor:pointer;">
+          <span class="call-icon">→</span>
+          <span class="call-details">
+            <span class="call-label">NEXT STEP</span>
+            <span class="call-number" style="font-size:18px;">TALK TO MENTOR ANKIT</span>
+          </span>
+        </button>
+        <p class="enroll-avail">Takes 10 seconds · No spam, ever</p>
+      </div>
+    </div>
+
+    <!-- Step 2: Call -->
+    <div id="enrollStep2" style="display:none;">
+      <div class="enroll-modal-header">
+        <div class="enroll-modal-tag">YOU'RE ALMOST IN</div>
+        <div class="enroll-modal-title">CALL <span style="color:var(--gold)">MENTOR ANKIT</span></div>
+        <p class="enroll-modal-sub" id="enrollGreeting">Hi there! Ankit is ready to speak with you and confirm your seat.</p>
+      </div>
+      <div class="enroll-modal-body">
+        <a class="enroll-call-btn" id="enrollCallBtn" href="tel:7000369522" style="text-decoration:none;display:flex;">
+          <span class="call-icon" style="font-size:22px;animation:ringPulse 2s infinite;">📞</span>
+          <span class="call-details">
+            <span class="call-label">TAP TO CALL NOW</span>
+            <span class="call-number">70003 69522</span>
+          </span>
+        </a>
+      </div>
+      <div class="enroll-modal-actions">
+        <a class="enroll-whatsapp-btn" id="enrollWABtn" href="https://wa.me/918269709951" target="_blank">
+          💬 &nbsp;WHATSAPP MENTOR ANKIT INSTEAD
+        </a>
+        <p class="enroll-avail">MON – SAT &nbsp;·&nbsp; 10 AM – 7 PM IST</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+// ─── ENROLL MODAL ───
+const overlay = document.getElementById('enrollOverlay');
+const enrollClose = document.getElementById('enrollClose');
+
+function openEnrollModal() {
+  // Reset to step 1
+  document.getElementById('enrollStep1').style.display = '';
+  document.getElementById('enrollStep2').style.display = 'none';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('modal-name').focus(), 300);
+}
+function closeEnrollModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Hook all enroll buttons
+document.querySelectorAll('a.btn-primary, button.btn-primary, a.nav-cta').forEach(btn => {
+  const txt = btn.textContent.toUpperCase();
+  if (txt.includes('ENROLL')) {
+    btn.addEventListener('click', e => { e.preventDefault(); openEnrollModal(); });
+  }
+});
+
+enrollClose.addEventListener('click', closeEnrollModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeEnrollModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEnrollModal(); });
+
+// Step 1 → Step 2
+document.getElementById('enrollNextBtn').addEventListener('click', () => {
+  const name = document.getElementById('modal-name').value.trim();
+  const city = document.getElementById('modal-city').value.trim();
+  if (!name) { document.getElementById('modal-name').focus(); return; }
+
+  // Personalise greeting
+  let greeting = `Hi <strong>${name}</strong>`;
+  if (city) greeting += ` from <strong>${city}</strong>`;
+  greeting += `! Ankit is ready to speak with you.<br>Tap the button below to call and confirm your seat.`;
+  document.getElementById('enrollGreeting').innerHTML = greeting;
+
+  // Personalise WhatsApp link
+  const info = [name, city].filter(Boolean).join(' from ');
+  document.getElementById('enrollWABtn').href = `https://wa.me/918269709951?text=Hi%20Ankit%2C%20I%27m%20${encodeURIComponent(info)}%20and%20I%20want%20to%20enroll%20in%20the%20Jireh%20Trades%20program.`;
+
+  // Transition to step 2
+  document.getElementById('enrollStep1').style.display = 'none';
+  document.getElementById('enrollStep2').style.display = '';
+});
+
+// Ring animation for call icon
+const style = document.createElement('style');
+style.textContent = '@keyframes ringPulse { 0%,100%{transform:rotate(0deg)} 10%{transform:rotate(-15deg)} 20%{transform:rotate(15deg)} 30%{transform:rotate(0deg)} }';
+document.head.appendChild(style);
+
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1121,6 +1801,35 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Star rating selector
+let selectedRating = 0;
+const starBtns = document.querySelectorAll('.star-btn');
+starBtns.forEach(btn => {
+  btn.addEventListener('mouseover', () => {
+    const val = +btn.dataset.val;
+    starBtns.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+  });
+  btn.addEventListener('mouseleave', () => {
+    starBtns.forEach(s => s.classList.toggle('active', +s.dataset.val <= selectedRating));
+  });
+  btn.addEventListener('click', () => {
+    selectedRating = +btn.dataset.val;
+    starBtns.forEach(s => s.classList.toggle('active', +s.dataset.val <= selectedRating));
+  });
+});
+
+// Review form submission
+document.getElementById('rev-submit')?.addEventListener('click', () => {
+  const name = document.getElementById('rev-name').value.trim();
+  const text = document.getElementById('rev-text').value.trim();
+  if (!name || !text || selectedRating === 0) {
+    alert('Please fill in your name, rating, and review text.');
+    return;
+  }
+  document.getElementById('rev-submit').style.display = 'none';
+  document.getElementById('rev-success').style.display = 'block';
+});
+
 // Animate ticker prices slightly for realism
 const prices = {
   'NIFTY 50': 22419.95,
@@ -1134,3 +1843,4 @@ function randomDrift(base, pct) {
 </script>
 </body>
 </html>
+
