@@ -415,13 +415,25 @@ section { padding: 100px 60px; }
 
 /* ─── PRICING ─── */
 .pricing-section { text-align: center; }
+.pricing-cards-wrap {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 .pricing-card {
+  flex: 1;
+  min-width: 300px;
   max-width: 520px;
-  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--gold);
   position: relative;
   overflow: hidden;
+}
+.pricing-card.gold-card {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, rgba(201,168,76,0.07) 0%, var(--surface) 60%);
 }
 .pricing-card::before {
   content: '';
@@ -957,6 +969,8 @@ footer {
   .curriculum-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(2,1fr); }
   .testi-grid { grid-template-columns: 1fr; }
+  .pricing-cards-wrap { flex-direction: column; align-items: center; }
+  .pricing-card { max-width: 100%; min-width: unset; }
 }
 </style>
 </head>
@@ -1313,6 +1327,9 @@ footer {
   <h2 class="section-title" style="text-align:center">ONE PROGRAM. COMPLETE MASTERY.</h2>
   <p class="section-sub" style="text-align:center;margin:0 auto 64px">No upsells. No hidden costs. Everything you need to become a mechanical trader is in one package.</p>
 
+  <div class="pricing-cards-wrap">
+
+  <!-- CARD 1: Complete Mastery -->
   <div class="pricing-card reveal">
     <div class="pricing-badge">MOST POPULAR</div>
     <div class="pricing-header">
@@ -1338,6 +1355,37 @@ footer {
       <a href="#" class="btn-primary" style="display:block;text-align:center;width:100%;padding:18px">ENROLL NOW — SECURE YOUR SEAT</a>
     </div>
   </div>
+
+  <!-- CARD 2: ONE MASTER GOLD XAUUSD STRATEGY -->
+  <div class="pricing-card gold-card reveal" style="border-color:var(--gold);">
+    <div class="pricing-badge" style="background:linear-gradient(90deg,#b8860b,var(--gold-light));color:#000;">🥇 GOLD SPECIAL</div>
+    <div class="pricing-header" style="border-bottom:1px solid var(--border);">
+      <div class="pricing-tier" style="letter-spacing:0.15em;">ONE MASTER STRATEGY · XAU/USD</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);letter-spacing:0.06em;margin-bottom:6px;">ONE MASTER</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--text);letter-spacing:0.08em;line-height:1;margin-bottom:16px;">GOLD <span style="color:var(--gold)">XAU/USD</span> STRATEGY</div>
+      <div class="pricing-price"><sup>₹</sup>4,999</div>
+      <div class="pricing-emi" style="color:var(--gold-dim);margin-top:6px;">FOCUSED · LETHAL · BATTLE-TESTED</div>
+    </div>
+    <ul class="pricing-features">
+      <li>Dedicated XAU/USD (Gold) intraday strategy</li>
+      <li>High-precision scalping setups on Gold</li>
+      <li>Works on Silver (XAG/USD) &amp; MCX Gold too</li>
+      <li>Applicable on major Forex pairs (EURUSD, GBPUSD)</li>
+      <li>Multi-session trade timing (London + NY)</li>
+      <li>Entry, SL &amp; target rules — fully mechanical</li>
+      <li>30-min &amp; 1H timeframe focus for intraday</li>
+      <li>5-min scalping variant included</li>
+      <li>Risk:Reward framework (min 1:2 setups)</li>
+      <li>PDF strategy guide + trade checklist</li>
+      <li>30-day WhatsApp mentor support</li>
+      <li>Lifetime access to strategy recordings</li>
+    </ul>
+    <div class="pricing-cta">
+      <a href="#" id="goldStrategyBtn" class="btn-primary" style="display:block;text-align:center;width:100%;padding:18px;background:linear-gradient(90deg,var(--gold-dim),var(--gold));">GET GOLD STRATEGY — ₹4,999</a>
+    </div>
+  </div>
+
+  </div><!-- end pricing-cards-wrap -->
 </section>
 
 <!-- TESTIMONIALS -->
@@ -1664,6 +1712,66 @@ footer {
   <div class="footer-copy">© 2025 Jireh Trades. All rights reserved. Not SEBI registered.</div>
 </footer>
 
+<!-- GOLD STRATEGY MODAL -->
+<div class="enroll-overlay" id="goldOverlay">
+  <div class="enroll-modal" style="border-color:var(--gold);background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,var(--surface) 60%);">
+    <button class="enroll-close" id="goldClose">✕</button>
+
+    <!-- Step 1: Name & City -->
+    <div id="goldStep1">
+      <div class="enroll-modal-header">
+        <div class="enroll-modal-tag">🥇 XAU/USD GOLD STRATEGY</div>
+        <div class="enroll-modal-title">ONE STEP TO <span style="color:var(--gold)">GET STARTED</span></div>
+        <p class="enroll-modal-sub">Tell us a little about yourself — then we'll connect you with Mentor Ankit to get your Gold strategy.</p>
+      </div>
+      <div class="enroll-modal-body">
+        <div class="enroll-field">
+          <label>YOUR NAME</label>
+          <input type="text" id="gold-modal-name" placeholder="Enter your full name">
+        </div>
+        <div class="enroll-field">
+          <label>YOUR CITY</label>
+          <input type="text" id="gold-modal-city" placeholder="e.g. Mumbai, Delhi, Raipur…">
+        </div>
+      </div>
+      <div class="enroll-modal-actions">
+        <button class="enroll-call-btn" id="goldNextBtn" style="border:none;cursor:pointer;background:linear-gradient(90deg,var(--gold-dim),var(--gold));">
+          <span class="call-icon">→</span>
+          <span class="call-details">
+            <span class="call-label">NEXT STEP</span>
+            <span class="call-number" style="font-size:18px;">TALK TO MENTOR ANKIT</span>
+          </span>
+        </button>
+        <p class="enroll-avail">Takes 10 seconds · No spam, ever</p>
+      </div>
+    </div>
+
+    <!-- Step 2: Call -->
+    <div id="goldStep2" style="display:none;">
+      <div class="enroll-modal-header">
+        <div class="enroll-modal-tag">🥇 YOU'RE ALMOST IN</div>
+        <div class="enroll-modal-title">CALL <span style="color:var(--gold)">MENTOR ANKIT</span></div>
+        <p class="enroll-modal-sub" id="goldGreeting">Hi there! Ankit is ready to speak with you about the Gold XAU/USD Strategy.</p>
+      </div>
+      <div class="enroll-modal-body">
+        <a class="enroll-call-btn" href="tel:7000369522" style="text-decoration:none;display:flex;background:linear-gradient(90deg,var(--gold-dim),var(--gold));">
+          <span class="call-icon" style="font-size:22px;animation:ringPulse 2s infinite;">📞</span>
+          <span class="call-details">
+            <span class="call-label">TAP TO CALL NOW</span>
+            <span class="call-number">70003 69522</span>
+          </span>
+        </a>
+      </div>
+      <div class="enroll-modal-actions">
+        <a class="enroll-whatsapp-btn" id="goldWABtn" href="https://wa.me/918269709951" target="_blank">
+          💬 &nbsp;WHATSAPP MENTOR ANKIT INSTEAD
+        </a>
+        <p class="enroll-avail">MON – SAT &nbsp;·&nbsp; 10 AM – 7 PM IST</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ENROLL MODAL -->
 <div class="enroll-overlay" id="enrollOverlay">
   <div class="enroll-modal">
@@ -1725,7 +1833,46 @@ footer {
 </div>
 
 <script>
-// ─── ENROLL MODAL ───
+// ─── GOLD MODAL ───
+const goldOverlay = document.getElementById('goldOverlay');
+const goldClose = document.getElementById('goldClose');
+
+function openGoldModal() {
+  document.getElementById('goldStep1').style.display = '';
+  document.getElementById('goldStep2').style.display = 'none';
+  goldOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('gold-modal-name').focus(), 300);
+}
+function closeGoldModal() {
+  goldOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('goldStrategyBtn').addEventListener('click', e => { e.preventDefault(); openGoldModal(); });
+goldClose.addEventListener('click', closeGoldModal);
+goldOverlay.addEventListener('click', e => { if (e.target === goldOverlay) closeGoldModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGoldModal(); });
+
+// Gold Step 1 → Step 2
+document.getElementById('goldNextBtn').addEventListener('click', () => {
+  const name = document.getElementById('gold-modal-name').value.trim();
+  const city = document.getElementById('gold-modal-city').value.trim();
+  if (!name) { document.getElementById('gold-modal-name').focus(); return; }
+
+  let greeting = `Hi <strong>${name}</strong>`;
+  if (city) greeting += ` from <strong>${city}</strong>`;
+  greeting += `! Ankit is ready to speak with you.<br>Tap below to call and get your Gold XAU/USD Strategy.`;
+  document.getElementById('goldGreeting').innerHTML = greeting;
+
+  const info = [name, city].filter(Boolean).join(' from ');
+  document.getElementById('goldWABtn').href = `https://wa.me/918269709951?text=Hi%20Ankit%2C%20I%27m%20${encodeURIComponent(info)}%20and%20I%27m%20interested%20in%20the%20Gold%20XAU%2FUSD%20Strategy%20at%20%E2%82%B94%2C999.`;
+
+  document.getElementById('goldStep1').style.display = 'none';
+  document.getElementById('goldStep2').style.display = '';
+});
+
+
 const overlay = document.getElementById('enrollOverlay');
 const enrollClose = document.getElementById('enrollClose');
 
