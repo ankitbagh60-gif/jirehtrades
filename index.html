@@ -1102,7 +1102,7 @@ footer {
     </h1>
     <p>Master mechanical trading systems with mentor <strong style="color:var(--gold)">Ankit</strong>. Six months of intensive mentorship covering 2–3 powerful strategies built on price action, structure, and rule-based execution.</p>
     <div class="hero-ctas">
-      <a href="#pricing" class="btn-primary">ENROLL NOW — ₹14,999</a>
+      <a href="#pricing" class="btn-primary">ENROLL NOW</a>
       <a href="#curriculum" class="btn-ghost">VIEW CURRICULUM</a>
     </div>
     <div class="hero-stats">
@@ -1352,7 +1352,7 @@ footer {
       <li>Lifetime access to all recordings</li>
     </ul>
     <div class="pricing-cta">
-      <a href="#" class="btn-primary" style="display:block;text-align:center;width:100%;padding:18px">ENROLL NOW — SECURE YOUR SEAT</a>
+      <a href="#pricing" class="btn-primary enroll-direct" style="display:block;text-align:center;width:100%;padding:18px">ENROLL NOW — SECURE YOUR SEAT</a>
     </div>
   </div>
 
@@ -1892,7 +1892,12 @@ function closeEnrollModal() {
 // Hook all enroll buttons
 document.querySelectorAll('a.btn-primary, button.btn-primary, a.nav-cta').forEach(btn => {
   const txt = btn.textContent.toUpperCase();
-  if (txt.includes('ENROLL')) {
+  if (btn.classList.contains('enroll-direct')) {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+    });
+  } else if (txt.includes('ENROLL')) {
     btn.addEventListener('click', e => { e.preventDefault(); openEnrollModal(); });
   }
 });
